@@ -15,7 +15,7 @@ namespace OtoServisSatis.Data
         public DbSet<Slider> Sliders { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"server=DESKTOP-GHG9V79;database=OtoServisSatisNetCore;integrated security=true;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer(@"server=localhost;database=OtoServisSatisNetCore;integrated security=true;TrustServerCertificate=True");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
