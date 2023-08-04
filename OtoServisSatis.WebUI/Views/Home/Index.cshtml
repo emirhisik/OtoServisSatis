@@ -1,0 +1,51 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-rider="carousel">
+    <div class="carousel-inner">
+
+        @foreach (var item in Model.Sliders)
+        {
+            <div class="carousel-item @(item == Model.Sliders.FirstOrDefault() ? "active" : "")">
+                <img src="/Img/Slider/@item.Resim" class="d-block w-100" alt="@item.Baslik">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>@item.Baslik</h5>
+                    <p>@item.Aciklama</p>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Oto Servis ve Satış</h1>
+    <p>Oto Servis ve Satış uygulaması</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Araclar)
+        {
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="flot-chart-wp mg-t-30">
+                    <div class="flot-chart flot-chr-pro" style="padding: 0px; position: relative;">
+                        <img src="/Img/Cars/@item.Resim1">
+                        <h5>@item.Marka @item.Modeli @item.KasaTipi</h5>
+                        @item.Fiyati ₺
+                    </div>
+                    <a class="btn btn-outline-dark mt-auto">İncele</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
